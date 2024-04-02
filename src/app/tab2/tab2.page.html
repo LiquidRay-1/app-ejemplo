@@ -15,41 +15,33 @@
       <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding"> Más información en el menú lateral
 
-    <!-- Tarjeta social -->
-    <ion-card>
-      <ion-item>
-        <ion-avatar item-left>
-          <img src="assets/female-avatar.svg">
+
+  <ion-content class="ion-padding"> Social
+
+    <!-- Tarjetas sociales -->
+
+    <ion-list>
+      <ion-item *ngfor="let user of users">
+        <ion-avatar slot="start">
+          <img [src]="user.avatarSrc" alt="Avatar">
         </ion-avatar>
-        <h2>Laura</h2>
-        <p></p>
+        <ion-label>
+          <h2>{{ user.nombre }}</h2>
+          <p>{{ user.mensaje }}</p>
+          <ion-note>{{ user.likes }} Likes | {{ user.comentarios }} Comentarios</ion-note>
+        </ion-label>
       </ion-item>
-      <img src="">
-      <ion-card-content>
-        <p>Este es un saludo a todo el mundo. Hola mundo!</p>
-      </ion-card-content>
-      <ion-row>
-        <ion-col>
-          <button ion-button icon-left clear small>
-            <ion-icon name="thumbs-up"></ion-icon>
-            <div></div>
-          </button>
-        </ion-col>
-        <ion-col>
-          <button ion-button icon-left clear small>
-            <ion-icon name="text"></ion-icon>
-            <div></div>
-          </button>
-        </ion-col>
-        <ion-col center text-center>
-          <ion-note>
-            
-          </ion-note>
-        </ion-col>
-      </ion-row>
-    </ion-card>
+    </ion-list>
+    
+
+    <!-- Botón flotante -->
+
+   <!-- <ion-fab class="addButton">
+      <ion-fab-button>
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab> -->
 
 
   </ion-content>
