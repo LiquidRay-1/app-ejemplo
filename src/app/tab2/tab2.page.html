@@ -1,17 +1,56 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-menu contentId="main-content">
+  <ion-header>
     <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+      <ion-title>Menu Content</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-content class="ion-padding">This is the menu content.</ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding"> Más información en el menú lateral
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
-</ion-content>
+    <!-- Tarjeta social -->
+    <ion-card>
+      <ion-item>
+        <ion-avatar item-left>
+          <img src="assets/female-avatar.svg">
+        </ion-avatar>
+        <h2>Laura</h2>
+        <p></p>
+      </ion-item>
+      <img src="">
+      <ion-card-content>
+        <p>Este es un saludo a todo el mundo. Hola mundo!</p>
+      </ion-card-content>
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-left clear small>
+            <ion-icon name="thumbs-up"></ion-icon>
+            <div></div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-left clear small>
+            <ion-icon name="text"></ion-icon>
+            <div></div>
+          </button>
+        </ion-col>
+        <ion-col center text-center>
+          <ion-note>
+            
+          </ion-note>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+
+
+  </ion-content>
+</div>
