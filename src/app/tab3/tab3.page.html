@@ -6,14 +6,23 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-header>
-</ion-header>
 <ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-toggle>Receive Push Notifications</ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-toggle>Receive Emails</ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-toggle>Receive Text Messages</ion-toggle>
+    </ion-item>
+  </ion-list>
   <ion-button expand="block" (click)="setOpen(true)">Guardar</ion-button>
   <ion-toast
     [isOpen]="isToastOpen"
     message="Cambios guardados"
     [duration]="5000"
-    (didDismiss)="setOpen(false)"
-  ></ion-toast>
+    (didDismiss)="setOpen(false)">
+  </ion-toast>
 </ion-content>
