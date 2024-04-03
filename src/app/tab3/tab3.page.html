@@ -9,20 +9,20 @@
 <ion-content class="ion-padding">
   <ion-list>
     <ion-item>
-      <ion-toggle>Receive Push Notifications</ion-toggle>
+      <ion-toggle aria-label="Primary toggle" color="primary">Recibir notificaciones de push</ion-toggle>
     </ion-item>
     <ion-item>
-      <ion-toggle>Receive Emails</ion-toggle>
+      <ion-toggle aria-label="Primary toggle" color="primary">Recibir emails</ion-toggle>
     </ion-item>
     <ion-item>
-      <ion-toggle>Receive Text Messages</ion-toggle>
+      <ion-toggle aria-label="Primary toggle" color="primary">Recibir mensajes de texto</ion-toggle>
     </ion-item>
   </ion-list>
   <ion-button expand="block" (click)="setOpen(true)">Guardar</ion-button>
   <ion-toast
     [isOpen]="isToastOpen"
     message="Cambios guardados"
-    [duration]="5000"
+    [duration]="2000"
     (didDismiss)="setOpen(false)">
   </ion-toast>
 </ion-content>

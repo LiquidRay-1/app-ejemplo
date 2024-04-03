@@ -1,17 +1,23 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient} from '@angular/common/http';
+import { Observable, map} from 'rxjs';
+import { PokemonApiResult } from '../models/pokemon';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  url = "http://localhost:3000/"
+  private url = 'https://pokeapi.co/api/v2/pokemon/';
 
   constructor(private http: HttpClient) { }
 
-  getUsers(): Observable<any> {
-    return this.http.get<any>(this.url)
+  getPokemons(): Observable<PokemonApiResult> {
+    return this.http.get(this.url).pipe(
+      map((res: any) => {
+        return res as PokemonApiResult;
+      })
+    );
   }
+
 }
