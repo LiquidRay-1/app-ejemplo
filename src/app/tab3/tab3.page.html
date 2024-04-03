@@ -6,12 +6,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+<ion-header>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-button expand="block" (click)="setOpen(true)">Guardar</ion-button>
+  <ion-toast
+    [isOpen]="isToastOpen"
+    message="Cambios guardados"
+    [duration]="5000"
+    (didDismiss)="setOpen(false)"
+  ></ion-toast>
 </ion-content>

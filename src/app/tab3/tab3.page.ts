@@ -7,6 +7,12 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
+  isToastOpen = false;
+
+  setOpen(isOpen: boolean) {
+    this.isToastOpen = isOpen;
+  }
+
   constructor() {}
 
 }
