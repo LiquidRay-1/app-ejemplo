@@ -61,4 +61,20 @@ export class DataService {
       })
     )
   }
+
+  getItemNextPage(url: string): Observable<ItemApiResponse> {
+    return this.http.get(url).pipe(
+      map((res: any) => {
+        return res as ItemApiResponse;
+      })
+    );
+  }
+
+  getItemLastPage(url: string): Observable<ItemApiResponse> {
+    return this.http.get(url).pipe(
+      map((res: any) => {
+        return res as ItemApiResponse
+      })
+    );
+  }
 }

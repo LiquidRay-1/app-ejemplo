@@ -23,4 +23,36 @@ export class Tab1Page implements OnInit {
         })
       })
   }
+
+  nextPage(){
+    console.log("Se ha pulsado el botón de pasar página")
+    if (this.itemApiResponse?.next) {
+      this.dataService.getItemNextPage(this.itemApiResponse.next).subscribe((data: ItemApiResponse) => {
+        this.itemApiResponse = data;
+        this.itemApiResponse.results.forEach(item => {
+          this.dataService.getItemDetails(item.url).subscribe((details: ItemDetail) => {
+            item.sprites = details.sprites;
+          });
+        });
+      });
+    } else {
+      console.log("No hay más páginas para mostrar");
+    }
+  }
+
+  previousPage(){
+    console.log("Se ha pulsado el botoón de volver página")
+    if (this.itemApiResponse?.previous) {
+      this.dataService.getItemLastPage(this.itemApiResponse.previous).subscribe((data: ItemApiResponse) => {
+        this.itemApiResponse = data;
+        this.itemApiResponse.results.forEach(item => {
+          this.dataService.getItemDetails(item.url).subscribe((details: ItemDetail) => {
+            item.sprites = details.sprites;
+          });
+        });
+      });
+    } else {
+      console.log("No hay páginas anteriores")
+    }
+  }
 }

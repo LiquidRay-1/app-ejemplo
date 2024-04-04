@@ -1,12 +1,15 @@
 
   <ion-content class="ion-padding" > Pokémons
 
-    <!-- Tarjetas sociales -->
+    <!-- Tarjetas -->
     
     <ion-list id="listaPokemon">
       <ion-item *ngFor="let pokemon of pokemonApiResult?.results">
         <ion-label>{{ pokemon.name }}</ion-label>
-        <ion-img [src]="pokemon.sprites?.other?.showdown?.front_default"></ion-img>
+        <ion-img *ngIf="pokemon.sprites?.other?.showdown?.front_default; else backupImage" [src]="pokemon.sprites?.other?.showdown?.front_default"></ion-img>
+        <ng-template #backupImage>
+          <ion-img class="missingNo" src="assets/missingno-pokemon.gif"></ion-img>
+        </ng-template>
       </ion-item>
     </ion-list>
 

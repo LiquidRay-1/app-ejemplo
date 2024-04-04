@@ -13,9 +13,23 @@
     </ion-toolbar>
   </ion-header>
   
-  <ion-list id="listaPokemon">
+  <ion-list id="listaItems">
     <ion-item *ngFor="let item of itemApiResponse?.results">
       <ion-label>{{ item.name }}</ion-label>
       <ion-img [src]="item.sprites?.default"></ion-img>
     </ion-item>
   </ion-list>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="start" (click)="previousPage()">
+    <ion-fab-button>
+      <ion-icon name="chevron-back-circle"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end" (click)="nextPage()">
+    <ion-fab-button>
+      <ion-icon name="chevron-forward-circle"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
