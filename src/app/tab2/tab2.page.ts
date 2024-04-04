@@ -7,7 +7,6 @@ import { DataService } from '../services/data.service';
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
-export class Tab2Page implements OnInit{
 
   //Asegurarse de hacer los siguientes cambios: 
   //Cambiar el json de abajo para que los datos que se muestren en pantalla sean los de que se encuentran en db.json
@@ -16,6 +15,8 @@ export class Tab2Page implements OnInit{
   //Que cuando se esté en uno de los 3 apartados de la aplicación se vea reflejado en el menú lateral
   //Al pulsar en uno de los posts se abra en detalle los detalles del mismo
 
+export class Tab2Page implements OnInit{
+
   pokemonApiResult: PokemonApiResult | undefined
 
   constructor(private dataService: DataService) { }
@@ -23,7 +24,11 @@ export class Tab2Page implements OnInit{
   ngOnInit() {
     this.dataService.getPokemons().subscribe((data: PokemonApiResult) => {
       this.pokemonApiResult = data;
-      console.log(data)
+      this.pokemonApiResult.results.forEach(pokemon => {
+        this.dataService.getPokemonDetails(pokemon.url).subscribe((details: Pokemon) => {
+          pokemon.sprites = details.sprites;
+        });
+      });
     });
   }
 }

@@ -6,8 +6,14 @@
     <ion-list>
       <ion-item *ngFor="let pokemon of pokemonApiResult?.results">
         <ion-label>{{ pokemon.name }}</ion-label>
-        <ion-img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/1.gif"></ion-img>
+        <ion-img [src]="pokemon.sprites?.other?.showdown?.front_default"></ion-img>
       </ion-item>
     </ion-list>
+
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+      <ion-fab-button>
+        <ion-icon name="chevron-forward-circle"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
 
   </ion-content>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Observable, map} from 'rxjs';
-import { PokemonApiResult } from '../models/pokemon';
+import { Pokemon, PokemonApiResult } from '../models/pokemon';
 
 @Injectable({
   providedIn: 'root'
@@ -20,4 +20,11 @@ export class DataService {
     );
   }
 
+  getPokemonDetails(url: string): Observable<Pokemon> {
+    return this.http.get(url).pipe(
+      map((res: any) => {
+        return res as Pokemon;
+      })
+    );
+  }
 }
