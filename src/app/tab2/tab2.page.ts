@@ -31,4 +31,16 @@ export class Tab2Page implements OnInit{
       });
     });
   }
+
+  funcionEjemplo(){
+    console.log("Se ha pulsado el botón de pasar página")
+    this.dataService.getPokemons().subscribe((data: PokemonApiResult) =>{
+      this.pokemonApiResult = data;
+      this.pokemonApiResult.results.forEach(pokemon => {
+        this.dataService.getPokemonDetails(pokemon.url).subscribe((details: Pokemon) => {
+          pokemon.sprites = details.sprites;
+        });
+      });
+    });
+  }
 }
