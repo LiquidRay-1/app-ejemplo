@@ -8,13 +8,6 @@ import { DataService } from '../services/data.service';
   styleUrls: ['tab2.page.scss']
 })
 
-  //Asegurarse de hacer los siguientes cambios: 
-  //Cambiar el json de abajo para que los datos que se muestren en pantalla sean los de que se encuentran en db.json
-  //Añadir pantalla de ajustes real, con cambio de color de cosas y con switchs para no ver las fotos de perfiles de los usuarios (ejemplos)
-  //Plantear una idea para la pantalla de inicio y que tenga funcionalidad real
-  //Que cuando se esté en uno de los 3 apartados de la aplicación se vea reflejado en el menú lateral
-  //Al pulsar en uno de los posts se abra en detalle los detalles del mismo
-
 export class Tab2Page implements OnInit{
 
   pokemonApiResult: PokemonApiResult | undefined
