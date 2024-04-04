@@ -1,0 +1,41 @@
+.missingItem{
+    height: 30px;
+    width: 30px;
+}
+
+ion-header {
+    ion-toolbar {
+    ion-title {
+        font-weight: bold;
+    }
+    }
+}
+
+ion-content {
+    ion-list {
+        margin: 5% 20% 0 20%;
+    ion-item {
+        border-radius: 15px;
+        margin-bottom: 10px;
+        ion-label {
+        font-size: 1.2em;
+        }
+        ion-img {
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        }
+        .missingItem {
+        filter: grayscale(100%);
+        }
+    }
+    }
+    ion-fab {
+    ion-fab-button {
+        --box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+        ion-icon {
+        font-size: 1.5em;
+        }
+    }
+    }
+}

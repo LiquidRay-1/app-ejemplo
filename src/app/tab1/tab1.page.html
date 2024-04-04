@@ -16,7 +16,10 @@
   <ion-list id="listaItems">
     <ion-item *ngFor="let item of itemApiResponse?.results">
       <ion-label>{{ item.name }}</ion-label>
-      <ion-img [src]="item.sprites?.default"></ion-img>
+      <ion-img *ngIf="item.sprites?.default; else backUpItem" [src]="item.sprites?.default"></ion-img>
+      <ng-template #backUpItem>
+        <ion-img class="missingItem" src="assets/error-item.webp"></ion-img>
+      </ng-template>
     </ion-item>
   </ion-list>
 
