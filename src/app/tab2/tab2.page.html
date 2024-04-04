@@ -3,7 +3,7 @@
 
     <!-- Tarjetas sociales -->
     
-    <ion-list>
+    <ion-list id="listaPokemon">
       <ion-item *ngFor="let pokemon of pokemonApiResult?.results">
         <ion-label>{{ pokemon.name }}</ion-label>
         <ion-img [src]="pokemon.sprites?.other?.showdown?.front_default"></ion-img>

@@ -12,35 +12,10 @@
       <ion-title size="large">Tab 1</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-card>
-    <ion-item>
-      <ion-avatar item-left>
-        <img src="">
-      </ion-avatar>
-      <h2></h2>
-      <p></p>
+  
+  <ion-list id="listaPokemon">
+    <ion-item *ngFor="let item of itemApiResponse?.results">
+      <ion-label>{{ item.name }}</ion-label>
+      <ion-img [src]="item.sprites?.default"></ion-img>
     </ion-item>
-    <img src="">
-    <ion-card-content>
-      <p></p>
-    </ion-card-content>
-    <ion-row>
-      <ion-col>
-        <button ion-button icon-left clear small>
-          <ion-icon name="thumbs-up"></ion-icon>
-          <div></div>
-        </button>
-      </ion-col>
-      <ion-col>
-        <button ion-button icon-left clear small>
-          <ion-icon name="text"></ion-icon>
-          <div></div>
-        </button>
-      </ion-col>
-      <ion-col center text-center>
-        <ion-note>
-          
-        </ion-note>
-      </ion-col>
-    </ion-row>
-  </ion-card>
+  </ion-list>

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Observable, map} from 'rxjs';
 import { Pokemon, PokemonApiResult } from '../models/pokemon';
+import { Item, ItemApiResponse, ItemDetail } from '../models/item';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,7 @@ import { Pokemon, PokemonApiResult } from '../models/pokemon';
 export class DataService {
 
   private url = 'https://pokeapi.co/api/v2/pokemon/';
+  private itemUrl = 'https://pokeapi.co/api/v2/item/';
 
   constructor(private http: HttpClient) { }
 
@@ -42,5 +44,21 @@ export class DataService {
         return res as Pokemon;
       })
     );
+  }
+
+  getItems(): Observable<ItemApiResponse>{
+    return this.http.get(this.itemUrl).pipe(
+      map((res: any) => {
+        return res as ItemApiResponse;
+      })
+    );
+  }
+
+  getItemDetails(url: string): Observable<ItemDetail> {
+    return this.http.get(url).pipe(
+      map((res: any) => {
+        return res as ItemDetail
+      })
+    )
   }
 }
