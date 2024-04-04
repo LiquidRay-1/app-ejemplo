@@ -20,12 +20,20 @@ export class DataService {
     );
   }
 
-  getOtherListofPokemon(): Observable<PokemonApiResult> {
-    return this.http.get(this.url).pipe(
+  getNextPage(url: string): Observable<PokemonApiResult> {
+    return this.http.get(url).pipe(
       map((res: any) => {
         return res as PokemonApiResult;
       })
-    )
+    );
+  }
+
+  getLastPage(url: string): Observable<PokemonApiResult> {
+    return this.http.get(url).pipe(
+      map((res: any) => {
+        return res as PokemonApiResult
+      })
+    );
   }
 
   getPokemonDetails(url: string): Observable<Pokemon> {

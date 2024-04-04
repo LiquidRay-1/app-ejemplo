@@ -1,5 +1,5 @@
 
-  <ion-content class="ion-padding"> Social
+  <ion-content class="ion-padding" > Pokémons
 
     <!-- Tarjetas sociales -->
     
@@ -10,7 +10,13 @@
       </ion-item>
     </ion-list>
 
-    <ion-fab slot="fixed" vertical="bottom" horizontal="end" (click)="funcionEjemplo()">
+    <ion-fab slot="fixed" vertical="bottom" horizontal="start" (click)="previousPage()">
+      <ion-fab-button>
+        <ion-icon name="chevron-back-circle"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end" (click)="nextPage()">
       <ion-fab-button>
         <ion-icon name="chevron-forward-circle"></ion-icon>
       </ion-fab-button>
