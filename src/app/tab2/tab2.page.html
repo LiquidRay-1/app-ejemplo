@@ -1,10 +1,12 @@
 
   <ion-content class="ion-padding" > Pokémons
 
-    <!-- Tarjetas -->
-    
+    <ion-searchbar placeholder="Buscar" (ionInput)="handleInput($event)"></ion-searchbar>
+
+    <!-- Tarjeta de Pokémons -->
+
     <ion-list id="listaPokemon">
-      <ion-item *ngFor="let pokemon of pokemonApiResult?.results">
+      <ion-item *ngFor="let pokemon of filteredPokemonList">
         <ion-label>{{ pokemon.name }}</ion-label>
         <ion-img *ngIf="pokemon.sprites?.other?.showdown?.front_default; else backupImage" [src]="pokemon.sprites?.other?.showdown?.front_default"></ion-img>
         <ng-template #backupImage>
@@ -12,6 +14,7 @@
         </ng-template>
       </ion-item>
     </ion-list>
+
 
     <ion-fab slot="fixed" vertical="bottom" horizontal="start" (click)="previousPage()">
       <ion-fab-button>

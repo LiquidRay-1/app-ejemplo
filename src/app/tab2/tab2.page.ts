@@ -12,6 +12,8 @@ export class Tab2Page implements OnInit{
 
   pokemonApiResult: PokemonApiResult | undefined
 
+  filteredPokemonList: Pokemon[] | undefined
+
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
@@ -24,6 +26,14 @@ export class Tab2Page implements OnInit{
       });
     });
   }
+
+  handleInput(event: any) {
+    const searchTerm = event.target.value.toLowerCase();
+    this.filteredPokemonList = this.pokemonApiResult?.results.filter(pokemon => {
+      return pokemon.name.toLowerCase().includes(searchTerm);
+    });
+  }
+  
 
   nextPage(){
     console.log("Se ha pulsado el botón de pasar página")
